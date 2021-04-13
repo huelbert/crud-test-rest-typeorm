@@ -1,2 +1,2 @@
-# crud-test-rest-typeorm
-CRUD test in REST with TypeORM
+# crud-test-typeorm
+CRUD test in REST e GraphQL with TypeORM
