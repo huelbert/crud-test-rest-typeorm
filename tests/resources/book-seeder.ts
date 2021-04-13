@@ -1,14 +1,15 @@
 import { getManager } from 'typeorm'
 
-export const id = '180a1b2a-66f5-4ed6-859b-8f411d9ce170'
+export const bookId = '180a1b2a-66f5-4ed6-859b-8f411d9ce170'
 
 export const bookData = {
+  id: bookId,
   name: 'Livro X'
 }
 
 export function createBook(): Promise<any> {
   const book = [
-    id,
+    bookData.id,
     bookData.name,
     new Date(), // createdAt
     new Date() // updatedAt

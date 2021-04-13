@@ -8,7 +8,7 @@ import {
   clearTableBook,
   createBook,
   bookData,
-  id
+  bookId
 } from '../resources/book-seeder'
 
 chai.use(chaiHTTP)
@@ -37,11 +37,11 @@ describe('book - Active Record Pattern', () => {
   it('show', async () => {
     await createBook()
     const app = await App.startServer()
-    const response = await chai.request(app).get(`${url}/${id}`)
+    const response = await chai.request(app).get(`${url}/${bookId}`)
 
     expect(response.status).to.be.equal(200)
     expect(response.body).to.be.a('object')
-    expect(response.body.id).to.be.equal(id)
+    expect(response.body.id).to.be.equal(bookId)
     expect(response.body.name).to.be.a('string')
     expect(response.body.createdAt).to.be.a('string')
     expect(response.body.updatedAt).to.be.a('string')
@@ -63,7 +63,10 @@ describe('book - Active Record Pattern', () => {
     await createBook()
     const update = { name: 'New Name' }
     const app = await App.startServer()
-    const response = await chai.request(app).put(`${url}/${id}`).send(update)
+    const response = await chai
+      .request(app)
+      .put(`${url}/${bookId}`)
+      .send(update)
 
     expect(response.status).to.be.equal(200)
     expect(response.body).to.be.a('object')
@@ -77,7 +80,7 @@ describe('book - Active Record Pattern', () => {
   it('delete', async () => {
     await createBook()
     const app = await App.startServer()
-    const response = await chai.request(app).delete(`${url}/${id}`)
+    const response = await chai.request(app).delete(`${url}/${bookId}`)
 
     expect(response.status).to.be.equal(200)
     expect(response.body).to.be.a('object')
