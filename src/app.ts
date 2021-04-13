@@ -1,7 +1,10 @@
 import express, { Application } from 'express'
 import morgan from 'morgan'
+import 'reflect-metadata'
 
 import routes from './routes'
+import Database from './database'
+import dbConfig from './config/database'
 
 class App {
   private _app: Application
@@ -21,9 +24,14 @@ class App {
     this._app.use('/v1', routes)
   }
 
+  public async connectDB() {
+    await Database.init(dbConfig)
+  }
+
   public async startServer() {
     this.middlewares()
     this.routes()
+    await this.connectDB()
 
     return this._app
   }
