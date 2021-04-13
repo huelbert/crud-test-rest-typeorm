@@ -11,7 +11,7 @@ import uuid from '../utils/uuid'
 
 /* Active Record Pattern */
 
-@Entity({ name: 'users' })
+@Entity({ name: 'students' })
 export default class User extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   public id: string
