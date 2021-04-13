@@ -12,15 +12,12 @@ import uuid from '../utils/uuid'
 /* Active Record Pattern */
 
 @Entity({ name: 'books' })
-export default class User extends BaseEntity {
+export default class Book extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   public id: string
 
   @Column()
   public name: string
-
-  @Column()
-  public phone: string
 
   @Column()
   public createdAt: Date
