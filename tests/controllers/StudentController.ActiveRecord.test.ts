@@ -8,7 +8,7 @@ import {
   clearTableStudent,
   createStudent,
   studentData,
-  id
+  studentId
 } from '../resources/student-seeder'
 
 chai.use(chaiHTTP)
@@ -38,11 +38,11 @@ describe('student - Active Record Pattern', () => {
   it('show', async () => {
     await createStudent()
     const app = await App.startServer()
-    const response = await chai.request(app).get(`${url}/${id}`)
+    const response = await chai.request(app).get(`${url}/${studentId}`)
 
     expect(response.status).to.be.equal(200)
     expect(response.body).to.be.a('object')
-    expect(response.body.id).to.be.equal(id)
+    expect(response.body.id).to.be.equal(studentId)
     expect(response.body.name).to.be.a('string')
     expect(response.body.phone).to.be.a('string')
     expect(response.body.createdAt).to.be.a('string')
@@ -66,7 +66,10 @@ describe('student - Active Record Pattern', () => {
     await createStudent()
     const update = { name: 'New Name' }
     const app = await App.startServer()
-    const response = await chai.request(app).put(`${url}/${id}`).send(update)
+    const response = await chai
+      .request(app)
+      .put(`${url}/${studentId}`)
+      .send(update)
 
     expect(response.status).to.be.equal(200)
     expect(response.body).to.be.a('object')
@@ -81,7 +84,7 @@ describe('student - Active Record Pattern', () => {
   it('delete', async () => {
     await createStudent()
     const app = await App.startServer()
-    const response = await chai.request(app).delete(`${url}/${id}`)
+    const response = await chai.request(app).delete(`${url}/${studentId}`)
 
     expect(response.status).to.be.equal(200)
     expect(response.body).to.be.a('object')
