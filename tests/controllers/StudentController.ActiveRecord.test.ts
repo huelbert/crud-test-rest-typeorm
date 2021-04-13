@@ -15,7 +15,7 @@ chai.use(chaiHTTP)
 
 const url = '/v1/active-record/student'
 
-describe('Active Record Pattern', () => {
+describe('student - Active Record Pattern', () => {
   beforeEach(async () => {
     await Database.init(dbConfig)
     await clearTableStudent()
