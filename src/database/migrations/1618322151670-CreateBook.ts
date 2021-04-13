@@ -19,12 +19,12 @@ export class BookMigration1618322151670 implements MigrationInterface {
             isNullable: false
           },
           {
-            name: 'createdAt',
+            name: 'created_at',
             type: 'timestamp',
             isNullable: false
           },
           {
-            name: 'updatedAt',
+            name: 'updated_at',
             type: 'timestamp',
             isNullable: false
           }

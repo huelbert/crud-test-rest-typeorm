@@ -16,13 +16,13 @@ export default class Book extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   public id: string
 
-  @Column()
+  @Column({ type: 'text', name: 'name' })
   public name: string
 
-  @Column()
+  @Column({ type: 'timestamp', name: 'created_at' })
   public createdAt: Date
 
-  @Column()
+  @Column({ type: 'timestamp', name: 'updated_at' })
   public updatedAt: Date
 
   @BeforeInsert()
