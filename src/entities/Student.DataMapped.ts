@@ -11,7 +11,7 @@ import uuid from '../utils/uuid'
 /* Data Mapper Pattern */
 
 @Entity({ name: 'students' })
-export default class User {
+export default class Student {
   @PrimaryGeneratedColumn('uuid')
   public id: string
 

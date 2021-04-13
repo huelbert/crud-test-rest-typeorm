@@ -12,7 +12,7 @@ import uuid from '../utils/uuid'
 /* Active Record Pattern */
 
 @Entity({ name: 'students' })
-export default class User extends BaseEntity {
+export default class Student extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   public id: string
 
