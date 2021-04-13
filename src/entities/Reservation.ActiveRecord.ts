@@ -7,6 +7,7 @@ import {
   PrimaryGeneratedColumn
 } from 'typeorm'
 
+import date from '../utils/date'
 import uuid from '../utils/uuid'
 
 /* Active Record Pattern */
@@ -46,7 +47,7 @@ export default class Reservation extends BaseEntity {
 
   @BeforeInsert()
   setReturnDate() {
-    this.returnDate.setDate(this.reservationDate.getDate() + 7)
+    this.returnDate = date.addDays(new Date(), 7)
   }
 
   @BeforeInsert()
