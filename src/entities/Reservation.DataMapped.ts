@@ -39,15 +39,23 @@ export default class Reservation {
   }
 
   @BeforeInsert()
-  setDates() {
+  setReservationDate() {
     this.reservationDate = new Date()
-    this.returnDate.setDate(this.reservationDate.getDate() + 7)
-    this.createdAt = new Date()
-    this.updatedAt = new Date()
   }
 
+  @BeforeInsert()
+  setReturnDate() {
+    this.returnDate.setDate(this.reservationDate.getDate() + 7)
+  }
+
+  @BeforeInsert()
+  setCreateDate(): void {
+    this.createdAt = new Date()
+  }
+
+  @BeforeInsert()
   @BeforeUpdate()
-  setUpdatedAt() {
+  setUpdateDate(): void {
     this.updatedAt = new Date()
   }
 }

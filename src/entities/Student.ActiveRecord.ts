@@ -34,13 +34,13 @@ export default class Student extends BaseEntity {
   }
 
   @BeforeInsert()
-  setDates() {
+  setCreateDate(): void {
     this.createdAt = new Date()
-    this.updatedAt = new Date()
   }
 
+  @BeforeInsert()
   @BeforeUpdate()
-  setUpdatedAt() {
+  setUpdateDate(): void {
     this.updatedAt = new Date()
   }
 }
