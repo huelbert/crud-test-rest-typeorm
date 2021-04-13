@@ -1,10 +1,10 @@
-import { Errback, Request, Response, NextFunction } from 'express'
+import { Request, Response, NextFunction } from 'express'
 
 export default function (
-  err: Errback,
+  err: any,
   req: Request,
   res: Response,
   next: NextFunction
 ) {
-  return res.status(500).json({ error: err })
+  return res.status(500).json({ error: err.message })
 }
