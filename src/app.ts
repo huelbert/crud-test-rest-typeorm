@@ -30,9 +30,9 @@ class App {
   }
 
   public async startServer() {
+    await this.connectDB()
     this.middlewares()
     this.routes()
-    await this.connectDB()
 
     return this._app
   }
