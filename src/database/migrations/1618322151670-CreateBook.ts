@@ -6,7 +6,7 @@ export class BookMigration1618322151670 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'books',
+        name: this.tableName,
         columns: [
           {
             name: 'id',
@@ -35,6 +35,6 @@ export class BookMigration1618322151670 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('books', true, true, true)
+    await queryRunner.dropTable(this.tableName, true, true, true)
   }
 }
