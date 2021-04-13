@@ -40,12 +40,22 @@ export default class ReservationController {
     const book = Reservation.create(body)
     const doc = await Reservation.save(book)
 
-    const { id, studentId, bookId, createdAt, updatedAt } = doc
+    const {
+      id,
+      studentId,
+      bookId,
+      reservationDate,
+      returnDate,
+      createdAt,
+      updatedAt
+    } = doc
 
     return res.status(201).json({
       id,
       studentId,
       bookId,
+      reservationDate,
+      returnDate,
       createdAt,
       updatedAt
     })
