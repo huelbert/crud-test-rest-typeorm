@@ -24,12 +24,12 @@ export class StudentMigration1618318286133 implements MigrationInterface {
             isNullable: true
           },
           {
-            name: 'createdAt',
+            name: 'created_at',
             type: 'timestamp',
             isNullable: false
           },
           {
-            name: 'updatedAt',
+            name: 'updated_at',
             type: 'timestamp',
             isNullable: false
           }
