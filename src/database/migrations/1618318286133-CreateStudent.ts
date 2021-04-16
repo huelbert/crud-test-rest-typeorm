@@ -10,7 +10,8 @@ export class StudentMigration1618318286133 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'uuid',
+            type: 'varchar',
+            generationStrategy: 'uuid',
             isPrimary: true
           },
           {
