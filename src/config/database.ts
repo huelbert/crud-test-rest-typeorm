@@ -15,7 +15,7 @@ const config: ConnectionOptions = {
   logging: isDev,
   logger: new SimpleConsoleLogger(isDev),
   synchronize: false,
-  migrationsRun: false,
+  migrationsRun: true,
   entities: ['src/entities/**/*.ts'],
   migrations: ['src/database/migrations/**/*.ts'],
   namingStrategy: new SnakeNamingStrategy(),
