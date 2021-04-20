@@ -4,7 +4,7 @@ import {
   BeforeUpdate,
   Column,
   Entity,
-  PrimaryGeneratedColumn
+  PrimaryColumn
 } from 'typeorm'
 
 import date from '../utils/date'
@@ -14,7 +14,7 @@ import uuid from '../utils/uuid'
 
 @Entity({ name: 'reservations' })
 export default class Reservation extends BaseEntity {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryColumn('uuid')
   public id: string
 
   @Column({ type: 'uuid', name: 'student_id' })
@@ -29,10 +29,10 @@ export default class Reservation extends BaseEntity {
   @Column({ type: 'date', name: 'return_date' })
   public returnDate: Date
 
-  @Column({ type: 'date', name: 'created_at' })
+  @Column({ type: 'timestamp', name: 'created_at' })
   public createdAt: Date
 
-  @Column({ type: 'date', name: 'updated_at' })
+  @Column({ type: 'timestamp', name: 'updated_at' })
   public updatedAt: Date
 
   @BeforeInsert()

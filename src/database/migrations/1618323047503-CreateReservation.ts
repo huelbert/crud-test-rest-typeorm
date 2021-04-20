@@ -15,18 +15,17 @@ export class ReservationMigration1618323047503 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'varchar',
-            generationStrategy: 'uuid',
+            type: 'uuid',
             isPrimary: true
           },
           {
             name: 'student_id',
-            type: 'varchar',
+            type: 'uuid',
             isNullable: false
           },
           {
             name: 'book_id',
-            type: 'varchar',
+            type: 'uuid',
             isNullable: false
           },
           {

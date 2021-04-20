@@ -3,7 +3,7 @@ import {
   BeforeUpdate,
   Column,
   Entity,
-  PrimaryGeneratedColumn
+  PrimaryColumn
 } from 'typeorm'
 
 import uuid from '../utils/uuid'
@@ -12,7 +12,7 @@ import uuid from '../utils/uuid'
 
 @Entity({ name: 'students' })
 export default class Student {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryColumn('uuid')
   public id: string
 
   @Column({ type: 'text', name: 'name' })

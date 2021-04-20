@@ -10,8 +10,7 @@ export class BookMigration1618322151670 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'varchar',
-            generationStrategy: 'uuid',
+            type: 'uuid',
             isPrimary: true
           },
           {
