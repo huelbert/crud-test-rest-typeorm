@@ -77,7 +77,7 @@ describe('src/graphql/resolvers/StudentResolver', () => {
     })
   })
 
-  it('deleteStudent - espera retornar um objeto de student', async () => {
+  it('deleteStudent - espera retornar um objeto com status igual true', async () => {
     const resolver = new StudentResolver()
     await createStudent()
     const result = await resolver.deleteStudent(studentId)
