@@ -16,12 +16,13 @@ class App {
     this._dev = process.env.NODE_ENV === 'development'
   }
 
-  private middlewares() {
+  private async middlewares() {
     this._app.use(morgan('common', { skip: () => !this._dev }))
     this._app.use(express.json())
     this._app.use(express.urlencoded({ extended: true }))
 
-    graphql.applyMiddleware({ app: this._app, path: '/graphql' })
+    const graphqlServer = await graphql()
+    graphqlServer.applyMiddleware({ app: this._app, path: '/graphql' })
   }
 
   private routes() {
@@ -34,7 +35,7 @@ class App {
 
   public async startServer() {
     await this.connectDB()
-    this.middlewares()
+    await this.middlewares()
     this.routes()
 
     return this._app

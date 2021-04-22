@@ -1,16 +1,13 @@
-import { ApolloServer, gql } from 'apollo-server-express'
+import { ApolloServer } from 'apollo-server-express'
+import { resolve } from 'path'
+import { buildSchema } from 'type-graphql'
 
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`
+async function graphql(): Promise<ApolloServer> {
+  const resolvers = resolve(__dirname, 'resolvers', '*')
 
-// Provide resolver functions for your schema fields
-const resolvers = {
-  Query: {
-    hello: () => 'Hello world!'
-  }
+  const schema = await buildSchema({ resolvers: [resolvers] })
+
+  return new ApolloServer({ schema })
 }
 
-export default new ApolloServer({ typeDefs, resolvers })
+export default graphql
