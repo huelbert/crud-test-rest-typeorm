@@ -5,17 +5,20 @@ import {
   Entity,
   PrimaryColumn
 } from 'typeorm'
+import { Field, ObjectType } from 'type-graphql'
 
 import uuid from '../utils/uuid'
 
 /* Data Mapper Pattern */
 
 @Entity({ name: 'books' })
+@ObjectType()
 export default class Book {
   @PrimaryColumn('uuid')
   public id: string
 
   @Column({ type: 'text', name: 'name' })
+  @Field()
   public name: string
 
   @Column({ type: 'timestamp', name: 'created_at' })

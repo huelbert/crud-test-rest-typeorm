@@ -5,6 +5,7 @@ import {
   Entity,
   PrimaryColumn
 } from 'typeorm'
+import { Field, ObjectType } from 'type-graphql'
 
 import date from '../utils/date'
 import uuid from '../utils/uuid'
@@ -12,6 +13,7 @@ import uuid from '../utils/uuid'
 /* Data Mapper Pattern */
 
 @Entity({ name: 'reservations' })
+@ObjectType()
 export default class Reservation {
   @PrimaryColumn('uuid')
   public id: string
@@ -23,9 +25,11 @@ export default class Reservation {
   public bookId: string
 
   @Column({ type: 'date', name: 'reservation_date' })
+  @Field()
   public reservationDate: Date
 
   @Column({ type: 'date', name: 'return_date' })
+  @Field()
   public returnDate: Date
 
   @Column({ type: 'timestamp', name: 'created_at' })

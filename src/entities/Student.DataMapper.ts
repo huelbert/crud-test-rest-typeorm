@@ -5,21 +5,25 @@ import {
   Entity,
   PrimaryColumn
 } from 'typeorm'
+import { Field, ObjectType } from 'type-graphql'
 
 import uuid from '../utils/uuid'
 
 /* Data Mapper Pattern */
 
 @Entity({ name: 'students' })
+@ObjectType()
 export default class Student {
   @PrimaryColumn('uuid')
   public id: string
 
   @Column({ type: 'text', name: 'name' })
+  @Field()
   public name: string
 
-  @Column({ type: 'text', name: 'phone' })
-  public phone: string
+  @Column({ type: 'text', name: 'phone', nullable: true })
+  @Field({ nullable: true })
+  public phone?: string
 
   @Column({ type: 'timestamp', name: 'created_at' })
   public createdAt: Date
