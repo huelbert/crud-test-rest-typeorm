@@ -21,7 +21,7 @@ describe('student - Active Record Pattern', () => {
     await clearTableStudent()
   })
 
-  it('index', async () => {
+  it('index - espera retornar um array de student', async () => {
     await createStudent()
     const app = await App.startServer()
     const response = await chai.request(app).get(url)

@@ -13,8 +13,8 @@ export function createStudent(): Promise<any> {
     studentData.id,
     studentData.name,
     studentData.phone,
-    new Date(), // createdAt
-    new Date() // updatedAt
+    new Date(2021, 0, 1, 10, 30, 0), // createdAt
+    new Date(2021, 0, 1, 10, 30, 0) // updatedAt
   ]
 
   const sql = `INSERT INTO STUDENTS 

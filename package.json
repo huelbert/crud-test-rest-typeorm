@@ -9,7 +9,7 @@
     "dev": "tsnd --respawn --rs --transpile-only --require dotenv/config ./src/server",
     "migrate": "tsnd ./node_modules/typeorm/cli.js migration:run",
     "migration:generate": "yarn ts-node ./node_modules/typeorm/cli.js migration:generate -n PostMigration -f ormconfig.js",
-    "test": "mocha -r ts-node/register -r dotenv/config ./tests/**/*.test.ts --exit dotenv_config_path=.env"
+    "test": "mocha -r ts-node/register -r dotenv/config ./tests/**/*.test.ts --exit"
   },
   "dependencies": {
     "apollo-server-express": "^2.23.0",
