@@ -6,6 +6,7 @@ import 'express-async-errors'
 import routes from './routes'
 import Database from './database'
 import dbConfig from './config/database'
+import graphql from './graphql'
 
 class App {
   private _app: Application
@@ -19,6 +20,8 @@ class App {
     this._app.use(morgan('common', { skip: () => !this._dev }))
     this._app.use(express.json())
     this._app.use(express.urlencoded({ extended: true }))
+
+    graphql.applyMiddleware({ app: this._app, path: '/graphql' })
   }
 
   private routes() {

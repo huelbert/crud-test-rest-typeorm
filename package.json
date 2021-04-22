@@ -12,13 +12,16 @@
     "test": "mocha -r ts-node/register -r dotenv/config ./tests/**/*.test.ts --exit dotenv_config_path=.env"
   },
   "dependencies": {
+    "apollo-server-express": "^2.23.0",
     "dotenv": "^8.2.0",
     "env-var": "^7.0.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
+    "graphql": "^15.5.0",
     "morgan": "^1.10.0",
     "pg": "^8.5.1",
     "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1",
     "typeorm": "^0.2.32",
     "typeorm-naming-strategies": "^2.0.0",
     "uuid": "^8.3.2"
