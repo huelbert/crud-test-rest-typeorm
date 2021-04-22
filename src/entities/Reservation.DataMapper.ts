@@ -6,6 +6,7 @@ import {
   PrimaryColumn
 } from 'typeorm'
 
+import date from '../utils/date'
 import uuid from '../utils/uuid'
 
 /* Data Mapper Pattern */
@@ -45,7 +46,7 @@ export default class Reservation {
 
   @BeforeInsert()
   setReturnDate() {
-    this.returnDate.setDate(this.reservationDate.getDate() + 7)
+    this.returnDate = date.addDays(new Date(), 7)
   }
 
   @BeforeInsert()
