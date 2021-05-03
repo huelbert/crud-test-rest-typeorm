@@ -11,8 +11,8 @@ export function createBook(): Promise<any> {
   const book = [
     bookData.id,
     bookData.name,
-    new Date(), // createdAt
-    new Date() // updatedAt
+    new Date(2021, 0, 1, 10, 30, 0), // createdAt
+    new Date(2021, 0, 1, 10, 30, 0) // updatedAt
   ]
 
   const sql = `INSERT INTO BOOKS 
