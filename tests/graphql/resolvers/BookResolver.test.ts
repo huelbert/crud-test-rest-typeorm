@@ -26,7 +26,7 @@ describe('src/graphql/resolvers/BookResolver', () => {
     const book = new Book()
     Object.assign(book, {
       id: '180a1b2a-66f5-4ed6-859b-8f411d9ce170',
-      name: 'Livro X',
+      name: 'Book X',
       createdAt: new Date(2021, 0, 1, 10, 30, 0),
       updatedAt: new Date(2021, 0, 1, 10, 30, 0)
     })
@@ -40,7 +40,7 @@ describe('src/graphql/resolvers/BookResolver', () => {
     const book = new Book()
     Object.assign(book, {
       id: '180a1b2a-66f5-4ed6-859b-8f411d9ce170',
-      name: 'Livro X',
+      name: 'Book X',
       createdAt: new Date(2021, 0, 1, 10, 30, 0),
       updatedAt: new Date(2021, 0, 1, 10, 30, 0)
     })
@@ -55,7 +55,7 @@ describe('src/graphql/resolvers/BookResolver', () => {
     const result = await resolver.createBook(book)
 
     expect(result).to.deep.include({
-      name: 'Livro X'
+      name: 'Book X'
     })
   })
 
@@ -63,12 +63,12 @@ describe('src/graphql/resolvers/BookResolver', () => {
     const resolver = new BookResolver()
     await createBook()
     const book = new BookUpdate()
-    book.name = 'Livro Z'
+    book.name = 'Book Z'
     const result = await resolver.updateBook(bookId, book)
 
     expect(result).to.deep.include({
       id: '180a1b2a-66f5-4ed6-859b-8f411d9ce170',
-      name: 'Livro Z'
+      name: 'Book Z'
     })
   })
 

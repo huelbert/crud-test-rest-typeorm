@@ -37,7 +37,7 @@ describe('book - API GraphQL', () => {
     expect(response.status).to.be.equal(200)
     expect(response.body).to.be.eql({
       data: {
-        books: [{ name: 'Livro X' }]
+        books: [{ name: 'Book X' }]
       }
     })
   })
@@ -51,7 +51,7 @@ describe('book - API GraphQL', () => {
     expect(response.status).to.be.equal(200)
     expect(response.body).to.be.eql({
       data: {
-        book: { name: 'Livro X' }
+        book: { name: 'Book X' }
       }
     })
   })
@@ -68,7 +68,7 @@ describe('book - API GraphQL', () => {
     expect(response.body).to.be.eql({
       data: {
         createBook: {
-          name: 'Livro X'
+          name: 'Book X'
         }
       }
     })
@@ -79,7 +79,7 @@ describe('book - API GraphQL', () => {
     const app = await App.startServer()
     const variables = {
       id: bookId,
-      name: 'Livro Z'
+      name: 'Book Z'
     }
     const body = UPDATE_BOOK(variables)
     const response = await chai.request(app).post(url).send(body)
@@ -88,7 +88,7 @@ describe('book - API GraphQL', () => {
     expect(response.body).to.be.eql({
       data: {
         updateBook: {
-          name: 'Livro Z'
+          name: 'Book Z'
         }
       }
     })

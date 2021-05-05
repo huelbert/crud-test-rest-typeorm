@@ -37,7 +37,7 @@ describe('student - API GraphQL', () => {
     expect(response.status).to.be.equal(200)
     expect(response.body).to.be.eql({
       data: {
-        students: [{ name: 'Fulano de tal', phone: '+5535999998888' }]
+        students: [{ name: 'Student Y', phone: '+5535999998888' }]
       }
     })
   })
@@ -51,7 +51,7 @@ describe('student - API GraphQL', () => {
     expect(response.status).to.be.equal(200)
     expect(response.body).to.be.eql({
       data: {
-        student: { name: 'Fulano de tal', phone: '+5535999998888' }
+        student: { name: 'Student Y', phone: '+5535999998888' }
       }
     })
   })
@@ -69,7 +69,7 @@ describe('student - API GraphQL', () => {
     expect(response.body).to.be.eql({
       data: {
         createStudent: {
-          name: 'Fulano de tal',
+          name: 'Student Y',
           phone: '+5535999998888'
         }
       }

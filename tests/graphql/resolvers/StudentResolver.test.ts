@@ -26,7 +26,7 @@ describe('src/graphql/resolvers/StudentResolver', () => {
     const student = new Student()
     Object.assign(student, {
       id: '5a0a1b2a-66f5-4ed6-859b-8f411d9ce170',
-      name: 'Fulano de tal',
+      name: 'Student Y',
       phone: '+5535999998888',
       createdAt: new Date(2021, 0, 1, 10, 30, 0),
       updatedAt: new Date(2021, 0, 1, 10, 30, 0)
@@ -41,7 +41,7 @@ describe('src/graphql/resolvers/StudentResolver', () => {
     const student = new Student()
     Object.assign(student, {
       id: '5a0a1b2a-66f5-4ed6-859b-8f411d9ce170',
-      name: 'Fulano de tal',
+      name: 'Student Y',
       phone: '+5535999998888',
       createdAt: new Date(2021, 0, 1, 10, 30, 0),
       updatedAt: new Date(2021, 0, 1, 10, 30, 0)
@@ -58,7 +58,7 @@ describe('src/graphql/resolvers/StudentResolver', () => {
     const result = await resolver.createStudent(student)
 
     expect(result).to.deep.include({
-      name: 'Fulano de tal',
+      name: 'Student Y',
       phone: '+5535999998888'
     })
   })
