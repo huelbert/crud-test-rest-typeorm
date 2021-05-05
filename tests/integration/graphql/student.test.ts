@@ -28,7 +28,7 @@ describe('student - API GraphQL', () => {
     await clearTableStudent()
   })
 
-  it('stundents - espera retornar um array de student', async () => {
+  it('students - espera retornar um array de student', async () => {
     await createStudent()
     const app = await App.startServer()
     const body = STUDENTS()
@@ -42,7 +42,7 @@ describe('student - API GraphQL', () => {
     })
   })
 
-  it('stundent - espera retornar um objeto de student', async () => {
+  it('student - espera retornar um objeto de student', async () => {
     await createStudent()
     const app = await App.startServer()
     const body = STUDENT({ id: studentId })
@@ -56,7 +56,7 @@ describe('student - API GraphQL', () => {
     })
   })
 
-  it('createStundent - espera retornar um objeto de student', async () => {
+  it('createStudent - espera retornar um objeto de student', async () => {
     const app = await App.startServer()
     const variables = {
       name: studentData.name,
@@ -76,7 +76,7 @@ describe('student - API GraphQL', () => {
     })
   })
 
-  it('updateStundent - espera retornar um objeto de student', async () => {
+  it('updateStudent - espera retornar um objeto de student', async () => {
     await createStudent()
     const app = await App.startServer()
     const variables = {
@@ -97,7 +97,7 @@ describe('student - API GraphQL', () => {
     })
   })
 
-  it('deleteStundent - espera retornar um objeto com status igual true', async () => {
+  it('deleteStudent - espera retornar um objeto com status igual true', async () => {
     await createStudent()
     const app = await App.startServer()
     const variables = {
