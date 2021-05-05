@@ -8,6 +8,10 @@ import StudentControllerManager from '../controllers/StudentController.DataMappe
 import BookControllerManager from '../controllers/BookController.DataMapper-Manager'
 import ReservationControllerManager from '../controllers/ReservationController.DataMapper-Manager'
 
+import StudentControllerQueryBuilder from '../controllers/StudentController.DataMapper-QueryBuilder'
+import BookControllerQueryBuilder from '../controllers/BookController.DataMapper-QueryBuilder'
+import ReservationControllerQueryBuilder from '../controllers/ReservationController.DataMapper-QueryBuilder'
+
 const routes = Router()
 
 routes.get('/repository/student', StudentControllerRepository.index)
@@ -51,5 +55,41 @@ routes.get('/manager/reservation/:id', ReservationControllerManager.show)
 routes.post('/manager/reservation', ReservationControllerManager.create)
 routes.put('/manager/reservation/:id', ReservationControllerManager.update)
 routes.delete('/manager/reservation/:id', ReservationControllerManager.delete)
+
+routes.get('/query-builder/student', StudentControllerQueryBuilder.index)
+routes.get('/query-builder/student/:id', StudentControllerQueryBuilder.show)
+routes.post('/query-builder/student', StudentControllerQueryBuilder.create)
+routes.put('/query-builder/student/:id', StudentControllerQueryBuilder.update)
+routes.delete(
+  '/query-builder/student/:id',
+  StudentControllerQueryBuilder.delete
+)
+
+routes.get('/query-builder/book', BookControllerQueryBuilder.index)
+routes.get('/query-builder/book/:id', BookControllerQueryBuilder.show)
+routes.post('/query-builder/book', BookControllerQueryBuilder.create)
+routes.put('/query-builder/book/:id', BookControllerQueryBuilder.update)
+routes.delete('/query-builder/book/:id', BookControllerQueryBuilder.delete)
+
+routes.get(
+  '/query-builder/reservation',
+  ReservationControllerQueryBuilder.index
+)
+routes.get(
+  '/query-builder/reservation/:id',
+  ReservationControllerQueryBuilder.show
+)
+routes.post(
+  '/query-builder/reservation',
+  ReservationControllerQueryBuilder.create
+)
+routes.put(
+  '/query-builder/reservation/:id',
+  ReservationControllerQueryBuilder.update
+)
+routes.delete(
+  '/query-builder/reservation/:id',
+  ReservationControllerQueryBuilder.delete
+)
 
 export default routes
