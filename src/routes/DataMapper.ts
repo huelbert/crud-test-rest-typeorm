@@ -12,6 +12,10 @@ import StudentControllerQueryBuilder from '../controllers/StudentController.Data
 import BookControllerQueryBuilder from '../controllers/BookController.DataMapper-QueryBuilder'
 import ReservationControllerQueryBuilder from '../controllers/ReservationController.DataMapper-QueryBuilder'
 
+import StudentControllerCustomRepository from '../controllers/StudentController.DataMapper-CustomRepository'
+import BookControllerCustomRepository from '../controllers/BookController.DataMapper-CustomRepository'
+import ReservationControllerCustomRepository from '../controllers/ReservationController.DataMapper-CustomRepository'
+
 const routes = Router()
 
 routes.get('/repository/student', StudentControllerRepository.index)
@@ -90,6 +94,57 @@ routes.put(
 routes.delete(
   '/query-builder/reservation/:id',
   ReservationControllerQueryBuilder.delete
+)
+
+routes.get(
+  '/custom-repository/student',
+  StudentControllerCustomRepository.index
+)
+routes.get(
+  '/custom-repository/student/:id',
+  StudentControllerCustomRepository.show
+)
+routes.post(
+  '/custom-repository/student',
+  StudentControllerCustomRepository.create
+)
+routes.put(
+  '/custom-repository/student/:id',
+  StudentControllerCustomRepository.update
+)
+routes.delete(
+  '/custom-repository/student/:id',
+  StudentControllerCustomRepository.delete
+)
+
+routes.get('/custom-repository/book', BookControllerCustomRepository.index)
+routes.get('/custom-repository/book/:id', BookControllerCustomRepository.show)
+routes.post('/custom-repository/book', BookControllerCustomRepository.create)
+routes.put('/custom-repository/book/:id', BookControllerCustomRepository.update)
+routes.delete(
+  '/custom-repository/book/:id',
+  BookControllerCustomRepository.delete
+)
+
+routes.get(
+  '/custom-repository/reservation',
+  ReservationControllerCustomRepository.index
+)
+routes.get(
+  '/custom-repository/reservation/:id',
+  ReservationControllerCustomRepository.show
+)
+routes.post(
+  '/custom-repository/reservation',
+  ReservationControllerCustomRepository.create
+)
+routes.put(
+  '/custom-repository/reservation/:id',
+  ReservationControllerCustomRepository.update
+)
+routes.delete(
+  '/custom-repository/reservation/:id',
+  ReservationControllerCustomRepository.delete
 )
 
 export default routes
