@@ -1,28 +1,26 @@
-## Exemple of using TypeORM
+## CRUD test in REST e GraphQL with TypeORM
 
-CRUD test in REST e GraphQL with TypeORM
+### Instructions
 
-### Instruções
-
-Instalar as dependências do projeto
+Install project dependencies
 
 ```
 yarn
 ```
 
-Executar a migration
+Perform the migration
 
 ```
 yarn migrate:run
 ```
 
-Rodar a aplicação
+Run the application
 
 ```
 yarn dev
 ```
 
-Executar os testes automatizados
+Run automated tests
 
 ```
 yarn test
