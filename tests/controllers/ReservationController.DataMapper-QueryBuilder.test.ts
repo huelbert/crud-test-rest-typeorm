@@ -77,7 +77,7 @@ describe('reservation - Data Mapper Pattern (Query Builder)', () => {
 
   it('update', async () => {
     await createReservation()
-    const update = { returnDate: '2000-01-01' }
+    const update = { returnDate: '1999-12-31T02:00:00.000Z' }
     const app = await App.startServer()
     const response = await chai
       .request(app)

@@ -3,10 +3,14 @@ import {
   BeforeUpdate,
   Column,
   Entity,
+  JoinColumn,
+  OneToOne,
   PrimaryColumn
 } from 'typeorm'
 import { Field, ObjectType } from 'type-graphql'
 
+import Book from './Book.DataMapper'
+import Student from './Student.DataMapper'
 import date from '../utils/date'
 import uuid from '../utils/uuid'
 
@@ -16,6 +20,7 @@ import uuid from '../utils/uuid'
 @ObjectType()
 export default class Reservation {
   @PrimaryColumn('uuid')
+  @Field()
   public id: string
 
   @Column({ type: 'uuid', name: 'student_id' })
@@ -24,11 +29,11 @@ export default class Reservation {
   @Column({ type: 'uuid', name: 'book_id' })
   public bookId: string
 
-  @Column({ type: 'date', name: 'reservation_date' })
+  @Column({ type: 'timestamp', name: 'reservation_date' })
   @Field()
   public reservationDate: Date
 
-  @Column({ type: 'date', name: 'return_date' })
+  @Column({ type: 'timestamp', name: 'return_date' })
   @Field()
   public returnDate: Date
 
@@ -37,6 +42,16 @@ export default class Reservation {
 
   @Column({ type: 'timestamp', name: 'updated_at' })
   public updatedAt: Date
+
+  @OneToOne(() => Book)
+  @JoinColumn()
+  @Field({ nullable: true })
+  public book: Book
+
+  @OneToOne(() => Student)
+  @JoinColumn()
+  @Field({ nullable: true })
+  public student: Student
 
   @BeforeInsert()
   generateId() {

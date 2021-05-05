@@ -6,7 +6,7 @@ import BookCreate from '../../entities/BookCreate'
 import BookUpdate from '../../entities/BookUpdate'
 import Result from '../../entities/Result'
 
-@Resolver()
+@Resolver(() => Book)
 export default class BookResolver {
   private readonly bookRepo = getRepository(Book)
 

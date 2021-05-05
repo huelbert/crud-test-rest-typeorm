@@ -6,7 +6,7 @@ import StudentCreate from '../../entities/StudentCreate'
 import StudentUpdate from '../../entities/StudentUpdate'
 import Result from '../../entities/Result'
 
-@Resolver()
+@Resolver(() => Student)
 export default class StudentResolver {
   private readonly studentRepo = getRepository(Student)
 
